@@ -1,0 +1,769 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kathirselvam - Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="main.css">
+  <style> * {
+     margin: 0;
+     padding: 0;
+     box-sizing: border-box;
+ }
+
+ body {
+     font-family: 'Poppins', sans-serif;
+     background-color: #0f172a;
+     color: #f8fafc;
+     line-height: 1.6;
+     scroll-behavior: smooth;
+ }
+
+ .container {
+     width: 100%;
+     max-width: 1200px;
+     margin: 0 auto;
+     padding: 0 20px;
+ }
+
+ header {
+     background-color: rgba(15, 23, 42, 0.95);
+     padding: 15px 0;
+     position: fixed;
+     width: 100%;
+     top: 0;
+     z-index: 1000;
+     backdrop-filter: blur(8px);
+     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+     transition: all 0.3s ease;
+ }
+
+ header.scrolled {
+     padding: 10px 0;
+     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+ }
+
+ nav {
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+ }
+
+ .logo {
+     font-size: 1.8rem;
+     font-weight: 700;
+     color: #38bdf8;
+     transition: transform 0.3s ease;
+ }
+
+ .logo:hover {
+     transform: scale(1.05);
+ }
+
+ .navigation {
+     display: flex;
+     list-style: none;
+ }
+
+ .navigation li {
+     margin-left: 25px;
+ }
+
+ .nav-link {
+     color: #f8fafc;
+     text-decoration: none;
+     font-weight: 500;
+     position: relative;
+     padding: 5px 0;
+     transition: color 0.3s ease;
+ }
+
+ .nav-link:hover {
+     color: #38bdf8;
+ }
+
+ .nav-link::after {
+     content: '';
+     position: absolute;
+     width: 0;
+     height: 2px;
+     bottom: 0;
+     left: 0;
+     background-color: #38bdf8;
+     transition: width 0.9s ease;
+ }
+
+ .nav-link:hover::after {
+     width: 100%;
+ }
+
+ section {
+     padding: 100px 0;
+ }
+
+ .section-title {
+     font-size: 2.5rem;
+     text-align: center;
+     margin-bottom: 50px;
+     color: #38bdf8;
+     position: relative;
+ }
+
+ .section-title::after {
+     content: '';
+     position: absolute;
+     width: 80px;
+     height: 4px;
+     background: linear-gradient(90deg, #38bdf8, #0ea5e9);
+     bottom: -15px;
+     left: 50%;
+     transform: translateX(-50%);
+     border-radius: 2px;
+ }
+
+ .hero {
+     text-align: center;
+     padding-top: 150px;
+     position: relative;
+     overflow: hidden;
+ }
+
+ .hero::before {
+     content: '';
+     position: absolute;
+     top: -50%;
+     left: -50%;
+     width: 200%;
+     height: 200%;
+     background: radial-gradient(circle, rgba(56, 189, 248, 0.1) 0%, rgba(15, 23, 42, 0) 70%);
+     z-index: -1;
+ }
+
+ .profile-pic {
+     width: 190px;
+     height: 190px;
+     border-radius: 50%;
+     border: 4px solid #38bdf8;
+     margin-bottom: 25px;
+     object-fit: cover;
+     box-shadow: 0 10px 30px rgba(56, 189, 248, 0.3);
+     transition: all 0.3s ease;
+ }
+
+ .profile-pic:hover {
+     transform: scale(1.2);
+     box-shadow: 0 15px 40px rgba(56, 189, 248, 0.4);
+ }
+
+ .title {
+     font-size: 3rem;
+     margin: 15px 0;
+     line-height: 1.2;
+ }
+
+ .title .highlight {
+     color: #38bdf8;
+     position: relative;
+ }
+
+ .title .highlight::after {
+     content: '';
+     position: absolute;
+     width: 100%;
+     height: 4px;
+     bottom: 0;
+     left: 0;
+     background: linear-gradient(90deg, #38bdf8, #0ea5e9);
+     border-radius: 2px;
+ }
+
+ .subtitle {
+     color: #94a3b8;
+     margin-bottom: 25px;
+     font-size: 1.5rem;
+     font-weight: 400;
+ }
+
+ .hero p {
+     max-width: 700px;
+     margin: 0 auto 30px;
+     font-size: 1.1rem;
+     color: #cbd5e1;
+ }
+
+ .btn-group {
+     margin: 30px 0;
+     display: flex;
+     justify-content: center;
+     gap: 20px;
+     flex-wrap: wrap;
+ }
+
+ .btn-download,
+ .btn-contact {
+     padding: 12px 30px;
+     border-radius: 30px;
+     text-decoration: none;
+     font-weight: 600;
+     transition: all 0.3s ease;
+     display: inline-flex;
+     align-items: center;
+     gap: 8px;
+     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+ }
+
+ .btn-download {
+     background: linear-gradient(135deg, #38bdf8, #0ea5e9);
+     color: #0f172a;
+ }
+ .btn-download:hover {
+     background: linear-gradient(135deg, #0ea5e9, #38bdf8);
+     transform: translateY(-5px) scale(1.05);
+     box-shadow: 0 8px 25px rgba(56, 189, 248, 0.4);
+ }
+
+ .btn-contact {
+     background: linear-gradient(135deg, #cb1152, #e11d48);
+     color: white;
+ }
+
+ .btn-contact:hover {
+     background: linear-gradient(135deg, #e11d48, #cb1152);
+     transform: translateY(-5px) scale(1.05);
+     box-shadow: 0 8px 25px rgba(203, 17, 82, 0.4);
+ }
+
+ /* Skills Section */
+ .skills-section {
+     background: rgba(15, 23, 42, 0.7);
+     border-radius: 20px;
+     padding: 30px;
+     margin-bottom: 40px;
+     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+ }
+
+ .skills-wrapper {
+     display: flex;
+     flex-wrap: wrap;
+     justify-content: center;
+     gap: 20px;
+ }
+
+ .skills-cards {
+     text-align: center;
+     border: 2px solid #38bdf8;
+     border-radius: 12px;
+     width: 160px;
+     height: 130px;
+     padding: 20px 10px;
+     transition: all 0.3s ease;
+     cursor: pointer;
+     background: rgba(15, 23, 42, 0.7);
+     display: flex;
+     flex-direction: column;
+     justify-content: center;
+     align-items: center;
+ }
+
+ .skills-cards i {
+     font-size: 36px;
+     color: #38bdf8;
+     margin-bottom: 12px;
+     display: block;
+     transition: all 0.3s ease;
+ }
+
+ .skills-cards p {
+     font-weight: 500;
+     transition: all 0.3s ease;
+ }
+
+ .skills-cards:hover {
+     background: linear-gradient(135deg, #38bdf8, #0ea5e9);
+     color: #0f172a;
+     transform: translateY(-8px) scale(1.05);
+     box-shadow: 0 15px 30px rgba(56, 189, 248, 0.3);
+ }
+
+ .skills-cards:hover i {
+     color: #0f172a;
+     transform: scale(1.1);
+ }
+
+ /* Projects Section */
+ .projects-grid {
+     display: grid;
+     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+     gap: 30px;
+ }
+
+ .project-card {
+     border: 2px solid #38bdf8;
+     border-radius: 15px;
+     padding: 25px;
+     transition: all 0.3s ease;
+     background: rgba(15, 23, 42, 0.7);
+     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+     display: flex;
+     flex-direction: column;
+     height: 100%;
+ }
+
+ .project-card h3 {
+     margin-bottom: 15px;
+     color: #38bdf8;
+     font-size: 1.5rem;
+ }
+
+ .project-card p {
+     margin-bottom: 15px;
+     color: #cbd5e1;
+ }
+
+ .project-card ul {
+     margin-top: auto;
+     padding-left: 20px;
+     color: #94a3b8;
+ }
+
+ .project-card li {
+     margin-bottom: 8px;
+     position: relative;
+ }
+
+ .project-card li::before {
+     content: '▹';
+     position: absolute;
+     left: -20px;
+     color: #38bdf8;
+ }
+
+ .project-card:hover {
+     background: linear-gradient(135deg, rgba(56, 189, 248, 0.1), rgba(56, 189, 248, 0.2));
+     transform: translateY(-8px);
+     box-shadow: 0 15px 30px rgba(56, 189, 248, 0.2);
+ }
+
+ /* Experience Section */
+ .experience-list {
+     max-width: 850px;
+     margin: 0 auto;
+ }
+
+ .exp-card {
+     border-left: 4px solid #38bdf8;
+     padding: 25px;
+     margin-bottom: 30px;
+     background: rgba(56, 189, 248, 0.1);
+     border-radius: 8px;
+     transition: all 0.3s ease;
+     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+ }
+
+ .exp-card:hover {
+     background: linear-gradient(135deg, rgba(56, 189, 248, 0.2), rgba(56, 189, 248, 0.3));
+     transform: scale(1.02);
+     box-shadow: 0 10px 25px rgba(56, 189, 248, 0.1);
+ }
+
+ .exp-card h3 {
+     margin-bottom: 10px;
+     color: #38bdf8;
+     font-size: 1.3rem;
+ }
+
+ .exp-card p {
+     margin: 0 0 15px;
+     font-weight: 500;
+ }
+
+ .exp-card ul {
+     padding-left: 20px;
+     color: #94a3b8;
+ }
+
+ .exp-card li {
+     margin-bottom: 8px;
+     position: relative;
+ }
+
+ .exp-card li::before {
+     content: '▹';
+     position: absolute;
+     left: -20px;
+     color: #38bdf8;
+ }
+
+ /* About Section */
+ .about-content {
+     max-width: 800px;
+     margin: 0 auto;
+     text-align: center;
+ }
+
+ .about-content p {
+     margin-bottom: 20px;
+     color: #cbd5e1;
+     line-height: 1.8;
+     text-align: left;
+ }
+
+ .about-content strong {
+     color: #38bdf8;
+     font-weight: 500;
+ }
+
+ .about-content em {
+     font-style: italic;
+     color: #94a3b8;
+ }
+
+ /* Contact Section */
+ .contact-container {
+     max-width: 700px;
+     margin: 0 auto;
+     text-align: center;
+     background: rgba(15, 23, 42, 0.7);
+     padding: 40px;
+     border-radius: 15px;
+     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+ }
+
+ .contact-container p {
+     margin-bottom: 30px;
+     color: #cbd5e1;
+ }
+
+ .contact-list {
+     list-style: none;
+     text-align: left;
+     max-width: 500px;
+     margin: 0 auto;
+ }
+
+ .contact-list li {
+     margin-bottom: 15px;
+     display: flex;
+     align-items: center;
+     color: #cbd5e1;
+ }
+
+ .contact-list strong {
+     min-width: 80px;
+     display: inline-block;
+     color: #38bdf8;
+ }
+
+ .contact-list a {
+     color: #f8fafc;
+     text-decoration: none;
+     transition: color 0.3s ease;
+     margin-left: 10px;
+ }
+
+ .contact-list a:hover {
+     color: #38bdf8;
+     text-decoration: underline;
+ }
+
+ /* Footer */
+ footer {
+     background: rgba(15, 23, 42, 0.9);
+     padding: 30px 0;
+     text-align: center;
+     border-top: 1px solid rgba(56, 189, 248, 0.2);
+ }
+
+ .footer-container {
+     max-width: 800px;
+     margin: 0 auto;
+ }
+
+ .footer-container p {
+     margin-bottom: 15px;
+     color: #94a3b8;
+ }
+
+ .footer-container strong {
+     color: #38bdf8;
+ }
+
+ .social-icons {
+     margin-top: 20px;
+     display: flex;
+     justify-content: center;
+     gap: 20px;
+     flex-wrap: wrap;
+ }
+
+ .social-icons a {
+     color: #f8fafc;
+     text-decoration: none;
+     transition: all 0.3s ease;
+     display: inline-flex;
+     align-items: center;
+     gap: 5px;
+ }
+
+ .social-icons a:hover {
+     color: #38bdf8;
+     transform: translateY(-3px);
+ }
+
+ /* Responsive Design */
+ @media (max-width: 768px) {
+     .navigation {
+         display: none;
+     }
+
+     .title {
+         font-size: 2.2rem;
+     }
+
+     .subtitle {
+         font-size: 1.2rem;
+     }
+
+     .section-title {
+         font-size: 2rem;
+     }
+
+     .skills-cards {
+         width: 140px;
+         height: 120px;
+     }
+
+     .project-card,
+     .exp-card {
+         padding: 20px;
+     }
+ }
+
+ /* Animation */
+ @keyframes fadeIn {
+     from {
+         opacity: 0;
+         transform: translateY(20px);
+     }
+
+     to {
+         opacity: 1;
+         transform: translateY(0);
+     }
+ }
+ 
+
+ section {
+     animation: fadeIn 0.8s ease forwards;
+ }</style>
+</head>
+<body>
+  <header id="header">
+    <nav class="container">
+      <div class="logo">KS</div>
+      <ul class="navigation">
+        <li><a href="#home" class="nav-link">Home</a></li>
+        <li><a href="#skill" class="nav-link">Skills</a></li>
+        <li><a href="#projects" class="nav-link">Projects</a></li>
+        <li><a href="#experience" class="nav-link">Experience</a></li>
+        <li><a href="#about" class="nav-link">About</a></li>
+        <li><a href="#contact" class="nav-link">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section id="home" class="hero">
+    <div class="container">
+      <img src="pic.png" alt="Kathirselvam" class="profile-pic">
+      <h1 class="title">Hi, I'm <span class="highlight">Kathirselvam</span></h1>
+      <h2 class="subtitle">Full-Stack Developer</h2>
+      <p>I build scalable web applications with clean UI, optimized performance, and robust backend systems.</p>
+      <div class="btn-group">
+        <a href="KathirSelvam Developer Resume.pdf" download class="btn-download"><i class="fas fa-download"></i> Resume</a>
+        <a href="#contact" class="btn-contact"><i class="fas fa-paper-plane"></i> Contact</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills -->
+  <section id="skill">
+    <div class="container">
+      <h2 class="section-title">Tech Skills</h2>
+      <div class="skills-section">
+        <div class="skills-wrapper">
+          <div class="skills-cards"><i class="fa-brands fa-html5"></i><p>HTML</p></div>
+          <div class="skills-cards"><i class="fa-brands fa-css3-alt"></i><p>CSS</p></div>
+          <div class="skills-cards"><i class="fa-brands fa-js"></i><p>JavaScript</p></div>
+          <div class="skills-cards"><i class="fa-brands fa-react"></i><p>React</p></div>
+          <div class="skills-cards"><i class="fa-brands fa-java"></i><p>Java</p></div>
+          <div class="skills-cards"><i class="fa-brands fa-python"></i><p>Django</p></div>
+          <div class="skills-cards"><i class="fa-solid fa-database"></i><p>MySQL</p></div>
+        </div>
+      </div>
+
+      <h2 class="section-title">Marketing Skills</h2>
+      <div class="skills-section">
+        <div class="skills-wrapper">
+          <div class="skills-cards"><i class="fa-solid fa-bullhorn"></i><p>SMM</p></div>
+          <div class="skills-cards"><i class="fa-solid fa-magnifying-glass"></i><p>SEO</p></div>
+          <div class="skills-cards"><i class="fa-solid fa-hashtag"></i><p>Social Media</p></div>
+          <div class="skills-cards"><i class="fa-solid fa-envelope"></i><p>Email Marketing</p></div>
+        </div>
+      </div>
+
+      <h2 class="section-title">Tools</h2>
+      <div class="skills-section">
+        <div class="skills-wrapper">
+          <div class="skills-cards"><i class="fa-brands fa-wordpress"></i><p>WordPress</p></div>
+          <div class="skills-cards"><i class="fa-solid fa-paintbrush"></i><p>Canva</p></div>
+          <div class="skills-cards"><i class="fa-brands fa-figma"></i><p>Figma</p></div>
+          <div class="skills-cards"><i class="fa-solid fa-chart-line"></i><p>Analytics</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects -->
+  <section id="projects">
+    <div class="container">
+      <h2 class="section-title">Projects</h2>
+      <div class="projects-grid">
+        <div class="project-card">
+          <h3>ServiceNest</h3>
+          <p>
+            A full-stack <strong>service marketplace platform</strong> built with Django (backend), 
+            MySQL (database), and HTML/CSS/JavaScript (frontend). It allows users to register as 
+            <em>workers</em> or <em>customers</em>, manage profiles, and connect for services.
+          </p>
+          <ul>
+            <li>Role-based authentication (workers vs. customers).</li>
+            <li>Dynamic registration & login system with validation.</li>
+            <li>Service search and worker availability management.</li>
+            <li>Feedback & rating system for service quality.</li>
+            <li>Admin dashboard for monitoring users and services.</li>
+          </ul>
+        </div>
+
+        <div class="project-card">
+          <h3>E-Commerce MERN</h3>
+          <p>
+            A feature-rich <strong>MERN stack e-commerce platform</strong> with a modern UI and 
+            scalable backend. Designed to provide a seamless shopping experience with authentication 
+            and order tracking.
+          </p>
+          <ul>
+            <li>JWT-based authentication & protected routes.</li>
+            <li>Product management (CRUD) for admins.</li>
+            <li>Shopping cart, checkout, and order history system.</li>
+            <li>Fully responsive React-based frontend with Tailwind CSS.</li>
+            <li>REST API integration between frontend & backend.</li>
+          </ul>
+        </div>
+
+        <div class="project-card">
+          <h3>Algoalphatech SMM Campaign</h3>
+          <p>
+            Developed a <strong>social media marketing strategy</strong> for a tech company, 
+            focusing on <em>brand awareness</em> and <em>lead generation</em> through targeted campaigns.
+          </p>
+          <ul>
+            <li>Planned and executed paid & organic campaigns.</li>
+            <li>Analyzed engagement metrics to optimize content reach.</li>
+            <li>Increased follower base and improved conversion rates.</li>
+            <li>Designed creatives and implemented audience targeting.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Experience -->
+  <section id="experience">
+    <div class="container">
+      <h2 class="section-title">Experience</h2>
+      <div class="experience-list">
+        <div class="exp-card">
+          <h3>VR Della (Aug - Oct 2024)</h3>
+          <p><strong>Internship Role:</strong> Data Analyst & Frontend Developer</p>
+          <ul>
+            <li>Analyzed <em>ECG machine development data</em> to derive insights for improvements.</li>
+            <li>Designed and optimized frontend UI for medical applications.</li>
+            <li>Collaborated with the R&D team to create data-driven solutions.</li>
+            <li>Improved UI responsiveness and accessibility for medical staff.</li>
+          </ul>
+        </div>
+
+        <div class="exp-card">
+          <h3>Freelance Digital Marketing</h3>
+          <p><strong>Role:</strong> Digital Marketing Strategist & Web Designer</p>
+          <ul>
+            <li>Executed <em>social media campaigns</em> for small businesses across multiple platforms.</li>
+            <li>Worked on SEO optimization, boosting organic website traffic.</li>
+            <li>Created responsive websites with clean UI/UX design.</li>
+            <li>Delivered end-to-end digital marketing services from strategy to execution.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section id="about">
+    <div class="container">
+      <h2 class="section-title">About Me</h2>
+      <div class="about-content">
+        <p>
+          Hi, I'm <strong>Kathirselvam</strong>, a final year <strong>B.Tech IT</strong> student passionate about 
+          <strong>Full-Stack Web Development</strong> and <strong>Digital Marketing</strong>.  
+          I love creating impactful applications that solve real-world problems by combining 
+          modern technologies with creative design.  
+        </p>
+        <p>
+          My core expertise lies in <strong>Java Full Stack, MERN stack, Django</strong> and I also have 
+          professional exposure to <strong>Data Analysis, Social Media Marketing (SMM)</strong>, and 
+          <strong>UI/UX design</strong>.  
+        </p>
+        <p>
+          Apart from coding, I enjoy exploring new marketing strategies, building side projects, 
+          and mentoring juniors in tech & career development. My goal is to grow as a 
+          <strong>Full-Stack Developer</strong> while also excelling in <strong>Tech-based Digital Marketing</strong>.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact">
+    <div class="container">
+      <h2 class="section-title">Contact</h2>
+      <div class="contact-container">
+        <p>If you'd like to connect, collaborate, or hire me for a project, feel free to reach out.</p>
+        <ul class="contact-list">
+          <li><strong>Email:</strong> <a href="mailto:kathirselvamv82@gmail.com">kathirselvamv82@gmail.com</a></li>
+          <li><strong>Phone:</strong> <a href="tel:+91 9344472138">+91 93444721238</a></li>
+          <li><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/kathir-selvam-v-40635726b?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank">linkedin.com/in/kathirselvam</a></li>
+          <li><strong>GitHub:</strong> <a href="https://github.com/kathirselvamv" target="_blank">kathirselvamv</a></li>
+          <li><strong>Portfolio:</strong> <a href="https://kathirselvam.com" target="_blank">kathirselvam.com</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-container">
+        <p>&copy; 2025 Kathirselvam | All Rights Reserved.</p>
+        <div class="social-icons">
+          <a href="https://www.linkedin.com/in/kathir-selvam-v-40635726b?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
+          <a href="https://github.com/kathirselvamv" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+          <a href="https://instagram.com/kathir_selvam_v" target="_blank"><i class="fab fa-instagram"></i> Instagram</a>
+          <a href="https://twitter.com/kathirselvam" target="_blank"><i class="fab fa-twitter"></i> Twitter</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
